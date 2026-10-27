@@ -1,6 +1,6 @@
 # AGREXPERT blog — runbook for each scheduled run
 
-Site: https://agrexpert.ru — AGREXPERT, центр градостроительной экспертизы и согласований (ИП Романенко О. В.): разработка и согласование АГР в Москве (ДГП), АГО в Московской области, Санкт-Петербурге и регионах, 3D-модели НПМ/ВПМ и ЦИМ в IFC, аудит альбомов и снятие замечаний.
+Site: https://agrexpert.ru — AGREXPERT, центр градостроительной экспертизы и согласований: разработка и согласование АГР в Москве (ДГП), АГО в Московской области, Санкт-Петербурге и регионах, 3D-модели НПМ/ВПМ и ЦИМ в IFC, аудит альбомов и снятие замечаний.
 Readers: ГИПы, ГАПы, архитекторы, девелоперы и технические заказчики with a real object. Write for professionals: precise, no beginner filler.
 Blog: https://agrexpert.ru/blog/ — Russian only. Two articles a week (Mon, Thu). Every second article is regional (see `_blog/KEYWORDS.md`).
 The owner chose to publish immediately (no manual approval step). That makes the self-review in step 6 mandatory.

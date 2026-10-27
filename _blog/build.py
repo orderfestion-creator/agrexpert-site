@@ -149,7 +149,7 @@ def header(current="blog"):
             f'<a class="btn btn-primary" href="/#audit">{ARROW}<span>Аудит альбома</span></a></div></header>')
 
 
-FOOTER = ('<footer><div class="wrap"><span>© 2026 AGREXPERT · ИП Романенко О. В., ОГРНИП 326784700162354</span>'
+FOOTER = ('<footer><div class="wrap"><span>© 2026 AGREXPERT</span>'
           '<span class="f-links"><a href="/blog/">Блог</a><a href="/privacy/">Политика обработки персональных данных</a><a href="/consent/">Согласие на обработку данных</a></span></div></footer>'
           '<div class="cookie" id="cookie" hidden role="region" aria-label="Уведомление о cookies"><p>Мы используем cookies и сервис Яндекс Метрика, чтобы понимать, как работает сайт. '
           'Подробнее в <a href="/privacy/#cookies">Политике</a>.</p><div class="cookie-btns"><button class="btn btn-primary" type="button" id="ck-yes">Принять</button>'
