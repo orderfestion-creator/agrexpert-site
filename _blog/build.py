@@ -165,7 +165,7 @@ FOOTER = ('<footer><div class="wrap"><span>© 2026 AGREXPERT</span>'
           'document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a[href^=\'/#audit\'],a[href^=\'mailto:\'],a[href^=\'https://t.me/\']");'
           'if(a&&window.ym)ym(ID,"reachGoal",location.pathname.indexOf("/services/")===0?"service_cta":"blog_cta");});})();</script>')
 
-ORG = {"@type": "Organization", "@id": SITE + "/#org", "name": "AGREXPERT", "url": SITE + "/", "email": "order@agrexpert.ru", "telephone": "+79006565574"}
+ORG = {"@type": "Organization", "@id": SITE + "/#org", "name": "AGREXPERT", "url": SITE + "/", "email": "order@agrexpert.ru"}
 
 
 def esc(s):

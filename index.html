@@ -15,7 +15,7 @@
 <!-- Яндекс Метрика 113822254 подключается скриптом внизу страницы после согласия на cookies -->
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
-{"@type":"Organization","name":"AGREXPERT","url":"https://agrexpert.ru/","email":"order@agrexpert.ru","telephone":"+79006565574","areaServed":["Москва","Московская область","Санкт-Петербург","Россия"]},
+{"@type":"Organization","name":"AGREXPERT","url":"https://agrexpert.ru/","email":"order@agrexpert.ru","areaServed":["Москва","Московская область","Санкт-Петербург","Россия"]},
 {"@type":"Service","serviceType":"Разработка и согласование АГР и АГО","provider":{"@type":"Organization","name":"AGREXPERT"},"areaServed":"RU"},
 {"@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"Чем АГР отличается от АГО?","acceptedAnswer":{"@type":"Answer","text":"АГР — московская процедура, свидетельство выдаёт ДГП. АГО — согласование облика по ст. 40.1 ГрК РФ: в регионах по ПП РФ № 857, а в Санкт-Петербурге — по собственному порядку."}},
@@ -48,6 +48,7 @@
 
 *{box-sizing:border-box}
 [hidden]{display:none!important}
+.phone-img{display:inline-block;height:.92em;aspect-ratio:590/58;max-width:100%;vertical-align:-.08em;background:currentColor;-webkit-mask:url(/img/phone.png) left center/contain no-repeat;mask:url(/img/phone.png) left center/contain no-repeat;user-select:none}
 body{margin:0}
 img{max-width:100%}
 html{scroll-behavior:smooth}
@@ -556,7 +557,7 @@ footer .f-links{display:flex;flex-wrap:wrap;gap:8px 18px}
       <dl class="contacts">
         <div><dt>E-mail</dt><dd><a href="mailto:order@agrexpert.ru">order@agrexpert.ru</a></dd></div>
         <div><dt>Telegram</dt><dd><a href="https://t.me/archirider" target="_blank" rel="noopener">@archirider</a></dd></div>
-        <div><dt>Телефон</dt><dd><a href="tel:+79006565574">+7 900 656-55-74</a></dd></div>
+        <div><dt>Телефон</dt><dd><span class="phone-img" role="img" aria-label="Номер телефона"></span></dd></div>
       </dl>
     </div>
     <form class="card" id="call-form" data-endpoint="/send.php" novalidate>
