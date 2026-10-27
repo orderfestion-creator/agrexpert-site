@@ -27,6 +27,7 @@ from datetime import date
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, "_blog", "posts")
+SVC = os.path.join(ROOT, "_blog", "services")
 SITE = "https://agrexpert.ru"
 REQUIRED = ["slug", "date", "title", "h1", "description", "lead", "keyword", "service"]
 MONTHS = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"]
@@ -126,16 +127,26 @@ footer .f-links{display:flex;flex-wrap:wrap;gap:8px 18px}
 .cookie a{color:var(--accent)}
 .cookie-btns{display:flex;flex-wrap:wrap;gap:8px}
 .cookie .btn{padding:10px 14px;font-size:.875rem}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;list-style:none;padding:0;margin:0}
+.chips a{display:inline-block;padding:9px 14px;border:1px solid var(--line);background:var(--sheet);text-decoration:none;font-size:.9375rem;border-radius:var(--r)}
+.chips a:hover{border-color:var(--accent)}
+.b-body ol.steps{counter-reset:st;list-style:none;padding:0;gap:14px}
+.b-body ol.steps>li{counter-increment:st;position:relative;padding-left:46px}
+.b-body ol.steps>li::before{content:counter(st,decimal-leading-zero);position:absolute;left:0;top:1px;font:500 .8125rem/1.6 var(--f-mono);color:var(--accent);border:1px solid var(--line);padding:0 6px;background:var(--sheet)}
 """
 
 LOGO = ('<svg class="logo-mark" viewBox="0 0 28 28" aria-hidden="true"><rect x="1" y="1" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5"/>'
         '<path d="M6 21 L14 7 L22 21 M9.5 15.5 H18.5" fill="none" stroke="var(--accent)" stroke-width="2"/></svg>')
 ARROW = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>'
 
-HEADER = (f'<header class="top"><div class="wrap"><a class="logo" href="/" aria-label="AGREXPERT — на главную">{LOGO}AGREXPERT</a>'
-          '<nav class="nav" aria-label="Разделы"><a href="/#services">Услуги</a><a href="/#objects">Объекты</a><a href="/#process">Как работаем</a>'
-          '<a href="/blog/" aria-current="page">Блог</a><a href="/#contacts">Контакты</a></nav>'
-          f'<a class="btn btn-primary" href="/#audit">{ARROW}<span>Аудит альбома</span></a></div></header>')
+def header(current="blog"):
+    cur = lambda k: ' aria-current="page"' if k == current else ""
+    return (f'<header class="top"><div class="wrap"><a class="logo" href="/" aria-label="AGREXPERT — на главную">{LOGO}AGREXPERT</a>'
+            f'<nav class="nav" aria-label="Разделы"><a href="/#services"{cur("services")}>Услуги</a><a href="/#objects">Объекты</a><a href="/#process">Как работаем</a>'
+            f'<a href="/blog/"{cur("blog")}>Блог</a><a href="/#contacts">Контакты</a></nav>'
+            f'<a class="btn btn-primary" href="/#audit">{ARROW}<span>Аудит альбома</span></a></div></header>')
+
 
 FOOTER = ('<footer><div class="wrap"><span>© 2026 AGREXPERT · ИП Романенко О. В., ОГРНИП 326784700162354</span>'
           '<span class="f-links"><a href="/blog/">Блог</a><a href="/privacy/">Политика обработки персональных данных</a><a href="/consent/">Согласие на обработку данных</a></span></div></footer>'
@@ -151,7 +162,7 @@ FOOTER = ('<footer><div class="wrap"><span>© 2026 AGREXPERT · ИП Роман�
           'document.getElementById("ck-yes").addEventListener("click",function(){set("yes")});'
           'document.getElementById("ck-no").addEventListener("click",function(){set("no")});'
           'document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a[href^=\'/#audit\'],a[href^=\'mailto:\'],a[href^=\'https://t.me/\']");'
-          'if(a&&window.ym)ym(ID,"reachGoal","blog_cta");});})();</script>')
+          'if(a&&window.ym)ym(ID,"reachGoal",location.pathname.indexOf("/services/")===0?"service_cta":"blog_cta");});})();</script>')
 
 ORG = {"@type": "Organization", "@id": SITE + "/#org", "name": "AGREXPERT", "url": SITE + "/", "email": "order@agrexpert.ru", "telephone": "+79006565574"}
 
@@ -207,7 +218,7 @@ def load_posts():
 
 # ---------------------------------------------------------------- rendering
 
-def page(title, desc, canonical, ld, crumbs, main_html, og_type="article", robots="index,follow,max-image-preview:large", image="/img/agr-v1-white.webp"):
+def page(title, desc, canonical, ld, crumbs, main_html, og_type="article", robots="index,follow,max-image-preview:large", image="/img/agr-v1-white.webp", current="blog"):
     cr = "".join(f'<li><a href="{u}">{esc(n)}</a></li>' for u, n in crumbs[:-1]) + f'<li><span aria-current="page">{esc(crumbs[-1][1])}</span></li>'
     ld_all = [{"@context": "https://schema.org", "@graph": [ORG] + ld}]
     ldj = "".join(f'<script type="application/ld+json">{json.dumps(b, ensure_ascii=False)}</script>' for b in ld_all)
@@ -221,7 +232,7 @@ def page(title, desc, canonical, ld, crumbs, main_html, og_type="article", robot
             f'<meta property="og:url" content="{SITE}{canonical}"><meta property="og:image" content="{SITE}{image}">'
             '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
             '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geologica:wght@400;500;600;700&family=Golos+Text:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">'
-            f'<style>{CSS}</style>{ldj}</head><body>{HEADER}'
+            f'<style>{CSS}</style>{ldj}</head><body>{header(current)}'
             f'<nav class="crumbs wrap" aria-label="Навигация"><ol>{cr}</ol></nav><main id="top">{main_html}</main>{FOOTER}</body></html>\n')
 
 
@@ -295,6 +306,97 @@ def render_rss(posts):
             f'<link>{SITE}/blog/</link><description>АГР и АГО: разработка и согласование облика зданий</description><language>ru</language>{items}</channel></rss>\n')
 
 
+# ---------------------------------------------------------------- service pages
+
+SVC_REQUIRED = ["slug", "title", "h1", "description", "lead", "eyebrow", "service_type", "area", "updated"]
+
+
+def load_services():
+    out = []
+    if not os.path.isdir(SVC):
+        return out
+    for name in sorted(os.listdir(SVC)):
+        if not name.endswith(".html"):
+            continue
+        raw = open(os.path.join(SVC, name), encoding="utf-8").read()
+        m = re.match(r"\s*<!--META\s*(\{.*?\})\s*-->\s*(.*)\Z", raw, re.S)
+        if not m:
+            raise SystemExit(f"services/{name}: missing META header")
+        meta = json.loads(m.group(1))
+        missing = [k for k in SVC_REQUIRED if not meta.get(k)]
+        if missing:
+            raise SystemExit(f"services/{name}: missing meta fields {missing}")
+        meta.update(body=m.group(2).strip(), file="services/" + name)
+        meta.setdefault("faq", [])
+        meta.setdefault("sources", [])
+        meta.setdefault("related", [])
+        meta.setdefault("order", 99)
+        out.append(meta)
+    out.sort(key=lambda x: x["order"])
+    return out
+
+
+def render_service(sv, services, posts):
+    url = f"/services/{sv['slug']}/"
+    by = {x["slug"]: x for x in services}
+    ld = [{"@type": "Service", "name": strip_tags(sv["h1"]), "serviceType": sv["service_type"], "description": sv["description"],
+           "areaServed": sv["area"], "provider": {"@id": SITE + "/#org"}, "url": SITE + url},
+          {"@type": "BreadcrumbList", "itemListElement": [
+              {"@type": "ListItem", "position": 1, "name": "Главная", "item": SITE + "/"},
+              {"@type": "ListItem", "position": 2, "name": "Услуги", "item": SITE + "/#services"},
+              {"@type": "ListItem", "position": 3, "name": strip_tags(sv["h1"]), "item": SITE + url}]}]
+    faq = ""
+    if sv["faq"]:
+        ld.append({"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": strip_tags(f["q"]),
+                   "acceptedAnswer": {"@type": "Answer", "text": strip_tags(f["a"])}} for f in sv["faq"]]})
+        items = "".join(f"<details><summary>{esc(strip_tags(f['q']))}</summary><p>{f['a']}</p></details>" for f in sv["faq"])
+        faq = f'<section class="sec"><div class="wrap"><h2>Частые вопросы</h2><div class="faq">{items}</div></div></section>'
+    src = ""
+    if sv["sources"]:
+        src = '<div class="b-src">Нормативная база и официальные источники:<ul>' + "".join(
+            f'<li><a href="{esc(x["url"])}" rel="noopener" target="_blank">{esc(x["title"])}</a></li>' for x in sv["sources"]) + "</ul></div>"
+    rel = [by[r] for r in sv["related"] if r in by]
+    chips = "".join(f'<li><a href="/services/{r["slug"]}/">{esc(strip_tags(r["h1"]))}</a></li>' for r in rel)
+    rel_html = f'<section class="sec"><div class="wrap"><h2>Другие услуги</h2><ul class="chips">{chips}</ul></div></section>' if chips else ""
+    linked = [p for p in posts if p.get("service") == url][:3]
+    blog_html = f'<section class="sec"><div class="wrap"><h2>Статьи по теме</h2><div class="cards">{"".join(card(p) for p in linked)}</div></div></section>' if linked else ""
+    main = (f'<section class="b-hero"><div class="wrap"><p class="eyebrow">{esc(sv["eyebrow"])}</p><h1>{sv["h1"]}</h1><p class="lead">{sv["lead"]}</p>'
+            f'<div class="cta-row"><a class="btn btn-primary" href="/#audit">{ARROW}<span>Бесплатный аудит за 24 часа</span></a>'
+            '<a class="btn btn-ghost" href="mailto:order@agrexpert.ru">Написать на order@agrexpert.ru</a></div></div></section>'
+            f'<div class="wrap b-grid"><article class="b-body">{sv["body"]}{src}</article>{aside()}</div>{faq}{blog_html}{rel_html}')
+    title = sv["title"] if "AGREXPERT" in sv["title"] else f'{sv["title"]} | AGREXPERT'
+    img = re.search(r'<img[^>]+src="(/img/[^"]+)"', sv["body"])
+    return page(title, sv["description"], url, ld, [("/", "Главная"), ("/#services", "Услуги"), (url, strip_tags(sv["h1"]))], main,
+                og_type="website", image=img.group(1) if img else "/img/agr-v1-white.webp", current="services")
+
+
+def check_services(services):
+    problems = []
+    pages, anchors = known_targets()
+    for sv in services:
+        f = sv["file"]
+        blob = sv["body"] + json.dumps(sv["faq"], ensure_ascii=False)
+        for href in re.findall(r'href="(/[^"?]*)"', blob):
+            if not link_ok(href, pages, anchors):
+                problems.append(f"{f}: internal link {href} does not exist")
+        for src in re.findall(r'src="(/[^"]+)"', sv["body"]):
+            if not os.path.exists(os.path.join(ROOT, src.lstrip("/"))):
+                problems.append(f"{f}: image {src} not found")
+        for img in re.findall(r"<img\b[^>]*>", sv["body"]):
+            if 'alt="' not in img or 'alt=""' in img:
+                problems.append(f"{f}: image without alt text")
+        if re.search(r"<h1\b", sv["body"]):
+            problems.append(f"{f}: body must not contain <h1>")
+        if not 110 <= len(sv["description"]) <= 170:
+            problems.append(f"{f}: description is {len(sv['description'])} chars (aim 120-160)")
+        if len(strip_tags(sv["title"])) > 70:
+            problems.append(f"{f}: title too long")
+        for r in sv["related"]:
+            if r not in {x["slug"] for x in services}:
+                problems.append(f"{f}: related service {r} missing")
+    return problems
+
+
 # ---------------------------------------------------------------- site wiring (idempotent)
 
 def wire_home():
@@ -314,10 +416,13 @@ def wire_home():
     return False
 
 
-def write_sitemap(posts):
+def write_sitemap(posts, services=()):
     path = os.path.join(ROOT, "sitemap.xml")
     s = open(path, encoding="utf-8").read()
     s = re.sub(r"\s*<!--blog-->.*?<!--/blog-->", "", s, flags=re.S)
+    s = re.sub(r"\s*<!--services-->.*?<!--/services-->", "", s, flags=re.S)
+    sv = "".join(f"\n  <url><loc>{SITE}/services/{x['slug']}/</loc><lastmod>{x['updated']}</lastmod></url>" for x in services)
+    s = s.replace("\n</urlset>", "\n  <!--services-->" + sv + "\n  <!--/services-->\n</urlset>", 1)
     urls = []
     if posts:
         urls.append(f"  <url><loc>{SITE}/blog/</loc><lastmod>{posts[0]['date']}</lastmod></url>")
@@ -415,6 +520,9 @@ def check(posts):
 def main():
     wired = wire_home()
     posts = load_posts()
+    services = load_services()
+    for sv in services:
+        write(os.path.join(ROOT, "services", sv["slug"], "index.html"), render_service(sv, services, posts))
     base = os.path.join(ROOT, "blog")
     live = {p["slug"] for p in posts}
     if os.path.isdir(base):  # remove pages of deleted/renamed posts
@@ -427,10 +535,10 @@ def main():
         write(os.path.join(base, p["slug"], "index.html"), render_post(p, posts))
     write(os.path.join(base, "index.html"), render_index(posts))
     write(os.path.join(base, "rss.xml"), render_rss(posts))
-    write_sitemap(posts)
-    print(f"built: {len(posts)} post(s)" + ("; Блог link added to home page" if wired else ""))
+    write_sitemap(posts, services)
+    print(f"built: {len(posts)} post(s), {len(services)} service page(s)" + ("; Блог link added to home page" if wired else ""))
     if "--check" in sys.argv:
-        problems = check(posts)
+        problems = check(posts) + check_services(services)
         for pr in problems:
             print("PROBLEM:", pr)
         if problems:

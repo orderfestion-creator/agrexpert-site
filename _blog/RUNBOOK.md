@@ -16,7 +16,7 @@ AGREXPERT is a separate brand. Never mention, link to or copy from itzbpla.ru, a
 
 ## Steps for a run
 1. Read `_blog/KEYWORDS.md` and `_blog/LOG.md`. Even number of rows → first `todo` in section B; odd → first `todo` in section C. Never write about section A phrases.
-2. Read `index.html` (services, process, FAQ, "что изменилось в 2026") so the article agrees with what the site says. If the site and an official source disagree, follow the official source in the article, and say so in the run report so the owner can fix the site.
+2. Read `index.html` and the topic's service page in `_blog/services/` so the article agrees with what the site says. If the site and an official source disagree, follow the official source in the article, and say so in the run report so the owner can fix the site.
 3. Research with WebSearch / WebFetch:
    - **Official sources first**: mos.ru (ДГП), the text of the Moscow/regional resolution in its current wording (pravo.gov.ru, mos.ru/authority, docs of mosreg.ru, gov.spb.ru / kga.gov.spb.ru, consultant.ru or garant.ru for the current редакция), ГрК РФ ст. 40.1, ПП РФ № 857.
    - Then what professionals ask and what competitors answer, to find gaps. Never copy text.
@@ -51,7 +51,7 @@ AGREXPERT is a separate brand. Never mention, link to or copy from itzbpla.ru, a
 - Usually 5,000–10,000 characters of body text; never pad.
 - On-page: primary phrase in title (≤ 65 chars, near the start), H1, slug, first paragraph, META keyword, and naturally in one H2. Description 120–160 chars, includes the primary phrase. Secondary phrases in H2/H3/body where they fit, once or twice each.
 - Structure: direct answer in the first paragraph; H2 sections matching real questions; a table where it helps decide (e.g. Москва / МО / СПб, или «нужно / не нужно»); numbered "типичные ошибки"; "что прислать на аудит" list.
-- Internal links: 3+ in the body. One to the topic's service target from KEYWORDS.md, using a section-A phrase as anchor text; `/#audit` (бесплатный аудит за 24 часа) where natural; 1–2 earlier blog posts when genuinely related (optionally add a link back from an older related post by editing its source). The build fails on links to pages/anchors that do not exist. When the `/services/...` pages appear on the site, switch to them and update section A.
+- Internal links: 3+ in the body. One to the topic's service target from KEYWORDS.md, using a section-A phrase as anchor text; `/#audit` (бесплатный аудит за 24 часа) where natural; 1–2 earlier blog posts when genuinely related (optionally add a link back from an older related post by editing its source). The build fails on links to pages/anchors that do not exist. Service pages live under `/services/<slug>/` (sources in `_blog/services/`, do not edit them in a blog run). Set META "service" to the page from KEYWORDS.md; the service page then lists the article under «Статьи по теме» automatically.
 - External links: only to official sources (rel="noopener" target="_blank" is fine). List them in META "sources" too.
 - FAQ in META: 4–6 real questions, short accurate answers.
 - Authorship: AGREXPERT (organization). Never invent people or credentials.
@@ -74,7 +74,7 @@ AGREXPERT is a separate brand. Never mention, link to or copy from itzbpla.ru, a
   "lead": "…",
   "keyword": "отличие АГО от АГР",
   "region": "",
-  "service": "/#services",
+  "service": "/services/agr-moscow/",
   "faq": [{"q": "…", "a": "…"}],
   "sources": [{"title": "Градостроительный кодекс РФ, ст. 40.1", "url": "https://…"}]
 }

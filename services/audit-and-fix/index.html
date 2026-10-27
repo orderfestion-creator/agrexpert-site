@@ -1,0 +1,141 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Аудит альбома АГР и АГО, снятие замечаний после отказа | AGREXPERT</title><meta name="description" content="Проверяем альбом АГР или АГО до подачи и разбираем отказ: ТЭП, состав по регламенту региона, фасады, 3D-модели. Дорабатываем и подаём повторно."><link rel="canonical" href="https://agrexpert.ru/services/audit-and-fix/"><meta name="robots" content="index,follow,max-image-preview:large"><link rel="alternate" type="application/rss+xml" title="Блог AGREXPERT" href="https://agrexpert.ru/blog/rss.xml"><meta property="og:type" content="website"><meta property="og:site_name" content="AGREXPERT"><meta property="og:locale" content="ru_RU"><meta property="og:title" content="Аудит альбома АГР и АГО, снятие замечаний после отказа | AGREXPERT"><meta property="og:description" content="Проверяем альбом АГР или АГО до подачи и разбираем отказ: ТЭП, состав по регламенту региона, фасады, 3D-модели. Дорабатываем и подаём повторно."><meta property="og:url" content="https://agrexpert.ru/services/audit-and-fix/"><meta property="og:image" content="https://agrexpert.ru/img/agr-v2-green.webp"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geologica:wght@400;500;600;700&family=Golos+Text:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"><style>
+:root{--paper:#E9ECE6;--sheet:#F6F7F3;--ink:#16202A;--muted:#56626C;--line:#C6CCC3;--grid:rgba(22,32,42,.055);
+--accent:#2C6A5B;--accent-ink:#F6F7F3;--red:#B5432E;--ok-soft:rgba(44,106,91,.10);
+--f-display:"Geologica","Golos Text",system-ui,sans-serif;--f-body:"Golos Text",system-ui,-apple-system,"Segoe UI",sans-serif;
+--f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;--wrap:1200px;--r:3px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#11161B;--sheet:#182027;--ink:#E4E9E3;--muted:#98A3AC;--line:#2C3741;--grid:rgba(228,233,227,.045);--accent:#6BB49F;--accent-ink:#0E1A16;--red:#E37A63;--ok-soft:rgba(107,180,159,.12);color-scheme:dark}}
+:root[data-theme="dark"]{--paper:#11161B;--sheet:#182027;--ink:#E4E9E3;--muted:#98A3AC;--line:#2C3741;--grid:rgba(228,233,227,.045);--accent:#6BB49F;--accent-ink:#0E1A16;--red:#E37A63;--ok-soft:rgba(107,180,159,.12);color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+h1,h2,h3{font-family:var(--f-display);font-weight:600;line-height:1.15;letter-spacing:-.015em;text-wrap:balance;margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:500 1rem/1 var(--f-body);padding:15px 22px;border-radius:var(--r);text-decoration:none;border:1.5px solid var(--ink);cursor:pointer}
+.btn-primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn-ghost{background:transparent;color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+.btn svg{width:16px;height:16px}
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:64px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font:700 1.0625rem/1 var(--f-display);letter-spacing:.06em}
+.logo-mark{width:28px;height:28px}
+.nav{display:flex;gap:26px;font-size:.9375rem}
+.nav a{text-decoration:none;color:var(--muted)}
+.nav a:hover,.nav a[aria-current]{color:var(--ink)}
+.top .btn{padding:11px 16px;font-size:.9375rem}
+@media (max-width:900px){.nav{display:none}}
+@media (max-width:480px){.top .btn span{display:none}}
+.crumbs{font:400 .8125rem/1.4 var(--f-mono);color:var(--muted);padding-top:20px}
+.crumbs ol{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0}
+.crumbs li+li::before{content:"/";margin-right:6px}
+.crumbs a{text-decoration:none}
+.b-hero{padding:28px 0 36px;border-bottom:1px solid var(--line);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px}
+.b-hero h1{font-size:clamp(1.875rem,4.4vw,3.125rem);font-weight:700;letter-spacing:-.025em;max-width:24ch;margin:10px 0 14px}
+.eyebrow{font:500 .8125rem/1.3 var(--f-mono);text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+.lead{color:var(--muted);font-size:1.1875rem;max-width:62ch;margin:0}
+.b-meta{font:400 .8125rem/1.4 var(--f-mono);color:var(--muted);margin:16px 0 0}
+.b-grid{display:grid;gap:36px;padding-block:40px 56px}
+@media (min-width:980px){.b-grid{grid-template-columns:minmax(0,1fr) 320px;gap:56px}}
+.b-body{min-width:0;max-width:72ch}
+.b-body h2{font-size:clamp(1.5rem,2.6vw,1.875rem);margin:1.6em 0 .55em}
+.b-body h2:first-child{margin-top:0}
+.b-body h3{font-size:1.1875rem;margin:1.3em 0 .45em}
+.b-body p{margin:0 0 1em}
+.b-body ul,.b-body ol{padding-left:1.25em;margin:0 0 1.1em;display:grid;gap:6px}
+.b-body li::marker{color:var(--accent)}
+.b-body a{color:var(--accent)}
+.table-wrap{overflow-x:auto;margin:6px 0 22px;border:1px solid var(--line);border-radius:var(--r);background:var(--sheet)}
+.table-wrap table{border-collapse:collapse;width:100%;font-size:.9375rem}
+.table-wrap th,.table-wrap td{padding:10px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+.table-wrap th{font-weight:600;background:var(--ok-soft)}
+.table-wrap tr:last-child td{border-bottom:0}
+.blog-note{border-left:3px solid var(--red);background:var(--sheet);padding:14px 18px;margin:6px 0 22px}
+.blog-note p{margin:0}
+.b-body figure{margin:8px 0 24px;border:1px solid var(--line);background:var(--sheet)}
+.b-body figure img{display:block;width:100%;height:auto}
+.b-body figcaption{font:400 .8125rem/1.4 var(--f-mono);color:var(--muted);padding:10px 14px}
+.b-aside{display:grid;gap:16px;align-content:start}
+@media (min-width:980px){.b-aside{position:sticky;top:88px}}
+.card{background:var(--sheet);border:1px solid var(--line);border-radius:var(--r);padding:22px;display:grid;gap:12px}
+.card h3{font-size:1.25rem}
+.card p{margin:0;color:var(--muted);font-size:.9375rem}
+.card .btn{width:100%}
+.card dl{margin:0;display:grid;gap:6px;font-size:.9375rem}
+.card dt{font:500 .71875rem/1.2 var(--f-mono);text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.card dd{margin:0 0 6px}
+.card dd a{color:var(--accent)}
+.sec{padding:8px 0 56px}
+.sec h2{font-size:clamp(1.5rem,2.6vw,1.875rem);margin:0 0 20px}
+.faq details{border-top:1px solid var(--line);padding:14px 0}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;font:600 1.0625rem/1.4 var(--f-display)}
+.faq details p{margin:10px 0 0;max-width:72ch;color:var(--muted)}
+.b-src{font-size:.875rem;color:var(--muted);border-top:1px solid var(--line);padding-top:16px;margin-top:28px}
+.b-src ul{display:block;padding-left:1.1em;margin:6px 0 0}
+.b-src a{color:var(--accent);overflow-wrap:anywhere}
+.cards{display:grid;gap:18px}
+@media (min-width:700px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1050px){.cards{grid-template-columns:repeat(3,1fr)}}
+.post{display:grid;gap:8px;align-content:start;text-decoration:none;background:var(--sheet);border:1px solid var(--line);border-radius:var(--r);padding:22px}
+.post:hover{border-color:var(--accent)}
+.post .d{font:400 .78rem/1.3 var(--f-mono);color:var(--muted)}
+.post b{font:600 1.1875rem/1.25 var(--f-display)}
+.post span{color:var(--muted);font-size:.9375rem}
+.post em{font-style:normal;font-weight:500;color:var(--accent)}
+.tag{display:inline-block;font:500 .72rem/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line);padding:5px 8px;color:var(--muted);justify-self:start}
+footer{background:var(--ink);color:color-mix(in srgb,var(--paper) 55%,transparent);padding-block:24px;font-size:.8125rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+footer a{color:inherit}
+footer .f-links{display:flex;flex-wrap:wrap;gap:8px 18px}
+.cookie{position:fixed;z-index:30;left:max(16px,env(safe-area-inset-left,0px));right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));max-width:620px;margin-inline:auto;background:var(--sheet);color:var(--ink);border:1.5px solid var(--ink);padding:16px 18px;display:grid;gap:12px;font-size:.875rem;box-shadow:0 10px 30px rgba(0,0,0,.18)}
+.cookie a{color:var(--accent)}
+.cookie-btns{display:flex;flex-wrap:wrap;gap:8px}
+.cookie .btn{padding:10px 14px;font-size:.875rem}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;list-style:none;padding:0;margin:0}
+.chips a{display:inline-block;padding:9px 14px;border:1px solid var(--line);background:var(--sheet);text-decoration:none;font-size:.9375rem;border-radius:var(--r)}
+.chips a:hover{border-color:var(--accent)}
+.b-body ol.steps{counter-reset:st;list-style:none;padding:0;gap:14px}
+.b-body ol.steps>li{counter-increment:st;position:relative;padding-left:46px}
+.b-body ol.steps>li::before{content:counter(st,decimal-leading-zero);position:absolute;left:0;top:1px;font:500 .8125rem/1.6 var(--f-mono);color:var(--accent);border:1px solid var(--line);padding:0 6px;background:var(--sheet)}
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://agrexpert.ru/#org", "name": "AGREXPERT", "url": "https://agrexpert.ru/", "email": "order@agrexpert.ru", "telephone": "+79006565574"}, {"@type": "Service", "name": "Аудит альбома АГР и АГО и снятие замечаний", "serviceType": "Аудит альбома АГР/АГО и устранение замечаний", "description": "Проверяем альбом АГР или АГО до подачи и разбираем отказ: ТЭП, состав по регламенту региона, фасады, 3D-модели. Дорабатываем и подаём повторно.", "areaServed": ["Москва", "Московская область", "Санкт-Петербург", "Россия"], "provider": {"@id": "https://agrexpert.ru/#org"}, "url": "https://agrexpert.ru/services/audit-and-fix/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://agrexpert.ru/"}, {"@type": "ListItem", "position": 2, "name": "Услуги", "item": "https://agrexpert.ru/#services"}, {"@type": "ListItem", "position": 3, "name": "Аудит альбома АГР и АГО и снятие замечаний", "item": "https://agrexpert.ru/services/audit-and-fix/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Сколько стоит экспресс-аудит?", "acceptedAnswer": {"@type": "Answer", "text": "Экспресс-аудит альбома бесплатный. За 24 часа после получения материалов присылаем на почту список рисков и что с ними делать."}}, {"@type": "Question", "name": "Можно ли доработать альбом, который делали не вы?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Берём чужой альбом и модели, дорабатываем по замечаниям и подаём повторно. Исходники в редактируемом формате ускоряют работу, но не обязательны."}}, {"@type": "Question", "name": "Вы подписываете NDA?", "acceptedAnswer": {"@type": "Answer", "text": "Да, по запросу. Материалы альбома третьим лицам не передаём."}}, {"@type": "Question", "name": "Что делать, если отказ получен по нескольким основаниям?", "acceptedAnswer": {"@type": "Answer", "text": "Разбираем каждое замечание: какое снимается доработкой альбома, какое — исправлением исходных данных или ТЭП, а какое требует обсуждения решения с заказчиком. После этого называем срок и стоимость."}}]}]}</script></head><body><header class="top"><div class="wrap"><a class="logo" href="/" aria-label="AGREXPERT — на главную"><svg class="logo-mark" viewBox="0 0 28 28" aria-hidden="true"><rect x="1" y="1" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M6 21 L14 7 L22 21 M9.5 15.5 H18.5" fill="none" stroke="var(--accent)" stroke-width="2"/></svg>AGREXPERT</a><nav class="nav" aria-label="Разделы"><a href="/#services" aria-current="page">Услуги</a><a href="/#objects">Объекты</a><a href="/#process">Как работаем</a><a href="/blog/">Блог</a><a href="/#contacts">Контакты</a></nav><a class="btn btn-primary" href="/#audit"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>Аудит альбома</span></a></div></header><nav class="crumbs wrap" aria-label="Навигация"><ol><li><a href="/">Главная</a></li><li><a href="/#services">Услуги</a></li><li><span aria-current="page">Аудит альбома АГР и АГО и снятие замечаний</span></li></ol></nav><main id="top"><section class="b-hero"><div class="wrap"><p class="eyebrow">Аудит · после отказа</p><h1>Аудит альбома АГР и АГО и снятие замечаний</h1><p class="lead">Берём альбом до подачи или вместе с замечаниями и отказом, разбираем причины, дорабатываем и подаём повторно. Экспресс-аудит — бесплатно, ответ за 24 часа.</p><div class="cta-row"><a class="btn btn-primary" href="/#audit"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>Бесплатный аудит за 24 часа</span></a><a class="btn btn-ghost" href="mailto:order@agrexpert.ru">Написать на order@agrexpert.ru</a></div></div></section><div class="wrap b-grid"><article class="b-body"><p><strong>Аудит альбома АГР и АГО</strong> — самый короткий путь к согласованию: чаще всего альбомы возвращают не за слабую архитектуру, а за расхождения в данных и формальные ошибки, которые можно найти до подачи. Если отказ уже получен, мы разбираем замечания, дорабатываем альбом и модели и подаём повторно. Первичная проверка бесплатная, ответ — за 24 часа.</p>
+
+<h2>Что проверяем при экспресс-аудите</h2>
+<ul>
+  <li>Соответствие ТЭП градостроительному плану участка: площадь, высота, процент застройки, отступы.</li>
+  <li>Состав альбома по порядку вашего региона: Москва, Московская область, Санкт-Петербург или федеральные правила.</li>
+  <li>Развёртки, колористику, материалы и благоустройство — как их увидит комиссия.</li>
+  <li>3D-модели НПМ, ВПМ и ЦИМ: формат, лимиты, классы IFC, система координат.</li>
+  <li>Нужен ли АГР или АГО вообще, или объект попадает под исключение.</li>
+</ul>
+<p>Результат — письмо со списком рисков, их последствиями и тем, что с ними делать. Если доработка нужна, сразу называем срок и стоимость.</p>
+
+<h2>Типичные замечания и как мы их снимаем</h2>
+<div class="table-wrap"><table>
+  <thead><tr><th>Замечание</th><th>Как решаем</th></tr></thead>
+  <tbody>
+    <tr><td>Фасад не вписывается в окружающую застройку</td><td>Делаем развёртки по всем улицам с соседней застройкой, подбираем материалы и цвета RAL/NCS, готовим варианты для обсуждения</td></tr>
+    <tr><td>ТЭП не совпадают с ГПЗУ</td><td>Сквозная сверка: ГПЗУ, ЕГРН, альбом, ведомость XML и модель. Расхождения исправляем до подачи</td></tr>
+    <tr><td>Модель не проходит проверку</td><td>Пересобираем НПМ, ВПМ и ЦИМ из одного источника геометрии, проверяем классы IFC и лимиты до загрузки</td></tr>
+    <tr><td>Неполный состав материалов</td><td>Сверяем комплект с действующим порядком региона и добираем недостающие листы</td></tr>
+  </tbody>
+</table></div>
+<figure><img src="/img/agr-v2-green.webp" width="1400" height="793" alt="Лист альбома: вариант фасада входной группы из зелёного глазурованного клинкера с бронзовыми обрамлениями проёмов" loading="lazy" decoding="async"><figcaption>Один из вариантов фасада, подготовленных для повторной подачи. Данные заказчика скрыты.</figcaption></figure>
+
+<h2>Как работаем после отказа</h2>
+<ol class="steps">
+  <li><strong>Разбор замечаний, 24 часа.</strong> Раскладываем каждое замечание по причинам и способам устранения.</li>
+  <li><strong>Договор, 1–2 дня.</strong> Фиксируем объём доработки, сроки и количество кругов замечаний.</li>
+  <li><strong>Доработка.</strong> Исправляем альбом, ТЭП и модели. При необходимости предлагаем компромиссное решение, которое устроит комиссию и не съест полезную площадь.</li>
+  <li><strong>Повторная подача.</strong> Подаём и отвечаем на вопросы до решения.</li>
+</ol>
+<div class="blog-note"><p>Каждый повторный круг добавляет регламентный срок рассмотрения, а за ним сдвигаются проектная документация, экспертиза и разрешение на строительство. Поэтому дешевле проверить альбом до первой подачи.</p></div>
+
+<h2>Что прислать</h2>
+<ul>
+  <li>Альбом в PDF или ссылку на него, модели, если есть.</li>
+  <li>ГПЗУ и ТЭП объекта.</li>
+  <li>Текст замечаний или отказа, если подача уже была.</li>
+</ul>
+<p>Отправьте материалы через форму <a href="/#audit">бесплатного аудита</a>. Порядки по регионам: <a href="/services/agr-moscow/">АГР в Москве</a>, <a href="/services/ago-mo/">АГО в Московской области</a>, <a href="/services/ago-spb/">АГО в Санкт-Петербурге</a>, <a href="/services/ago-regions/">АГО в регионах</a>.</p></article><aside class="b-aside"><div class="card"><h3>Бесплатный аудит альбома за 24 часа</h3><p>Пришлите альбом АГР или АГО до подачи или вместе с замечаниями — вернём список рисков и что с ними делать.</p><a class="btn btn-primary" href="/#audit"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>Отправить на аудит</span></a></div><div class="card"><h3>Написать эксперту</h3><dl><dt>E-mail</dt><dd><a href="mailto:order@agrexpert.ru">order@agrexpert.ru</a></dd><dt>Telegram</dt><dd><a href="https://t.me/archirider">@archirider</a></dd></dl><p>Просим обращаться письменно: письмо с материалами точно дойдёт до эксперта.</p></div></aside></div><section class="sec"><div class="wrap"><h2>Частые вопросы</h2><div class="faq"><details><summary>Сколько стоит экспресс-аудит?</summary><p>Экспресс-аудит альбома бесплатный. За 24 часа после получения материалов присылаем на почту список рисков и что с ними делать.</p></details><details><summary>Можно ли доработать альбом, который делали не вы?</summary><p>Да. Берём чужой альбом и модели, дорабатываем по замечаниям и подаём повторно. Исходники в редактируемом формате ускоряют работу, но не обязательны.</p></details><details><summary>Вы подписываете NDA?</summary><p>Да, по запросу. Материалы альбома третьим лицам не передаём.</p></details><details><summary>Что делать, если отказ получен по нескольким основаниям?</summary><p>Разбираем каждое замечание: какое снимается доработкой альбома, какое — исправлением исходных данных или ТЭП, а какое требует обсуждения решения с заказчиком. После этого называем срок и стоимость.</p></details></div></div></section><section class="sec"><div class="wrap"><h2>Другие услуги</h2><ul class="chips"><li><a href="/services/agr-moscow/">Согласование АГР в Москве</a></li><li><a href="/services/ago-mo/">Согласование АГО в Московской области</a></li><li><a href="/services/ago-spb/">Согласование АГО в Санкт-Петербурге</a></li><li><a href="/services/3d-ifc-models/">3D-модели и ЦИМ в IFC для АГР</a></li></ul></div></section></main><footer><div class="wrap"><span>© 2026 AGREXPERT · ИП Романенко О. В., ОГРНИП 326784700162354</span><span class="f-links"><a href="/blog/">Блог</a><a href="/privacy/">Политика обработки персональных данных</a><a href="/consent/">Согласие на обработку данных</a></span></div></footer><div class="cookie" id="cookie" hidden role="region" aria-label="Уведомление о cookies"><p>Мы используем cookies и сервис Яндекс Метрика, чтобы понимать, как работает сайт. Подробнее в <a href="/privacy/#cookies">Политике</a>.</p><div class="cookie-btns"><button class="btn btn-primary" type="button" id="ck-yes">Принять</button><button class="btn btn-ghost" type="button" id="ck-no">Только необходимые</button></div></div><script>(function(){var ID=113822254;function load(){(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(ID,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:false});}var ck=null;try{ck=localStorage.getItem("ck")}catch(e){}var bar=document.getElementById("cookie");if(ck==="yes")load();else if(ck!=="no")bar.hidden=false;function set(v){try{localStorage.setItem("ck",v)}catch(e){}bar.hidden=true;if(v==="yes")load();}document.getElementById("ck-yes").addEventListener("click",function(){set("yes")});document.getElementById("ck-no").addEventListener("click",function(){set("no")});document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a[href^='/#audit'],a[href^='mailto:'],a[href^='https://t.me/']");if(a&&window.ym)ym(ID,"reachGoal",location.pathname.indexOf("/services/")===0?"service_cta":"blog_cta");});})();</script></body></html>
