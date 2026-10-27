@@ -48,6 +48,8 @@
 
 *{box-sizing:border-box}
 [hidden]{display:none!important}
+.tel-link{display:inline-block;padding-block:4px}
+.tel-link:hover .phone-img{opacity:.8}
 .phone-img{display:inline-block;height:.92em;aspect-ratio:590/58;max-width:100%;vertical-align:-.08em;background:currentColor;-webkit-mask:url(/img/phone.png) left center/contain no-repeat;mask:url(/img/phone.png) left center/contain no-repeat;user-select:none}
 body{margin:0}
 img{max-width:100%}
@@ -557,7 +559,7 @@ footer .f-links{display:flex;flex-wrap:wrap;gap:8px 18px}
       <dl class="contacts">
         <div><dt>E-mail</dt><dd><a href="mailto:order@agrexpert.ru">order@agrexpert.ru</a></dd></div>
         <div><dt>Telegram</dt><dd><a href="https://t.me/archirider" target="_blank" rel="noopener">@archirider</a></dd></div>
-        <div><dt>Телефон</dt><dd><span class="phone-img" role="img" aria-label="Номер телефона"></span></dd></div>
+        <div><dt>Телефон</dt><dd><a class="tel-link" href="#contacts" data-t="NDc1NTY1NjAwOTc=" aria-label="Позвонить"><span class="phone-img" role="img" aria-label="Номер телефона"></span></a></dd></div>
       </dl>
     </div>
     <form class="card" id="call-form" data-endpoint="/send.php" novalidate>
@@ -629,6 +631,11 @@ footer .f-links{display:flex;flex-wrap:wrap;gap:8px 18px}
   function setCk(v){try{localStorage.setItem('ck',v)}catch(e){} bar.hidden=true; if(v==='yes')loadMetrika();}
   document.getElementById('ck-yes').addEventListener('click',function(){setCk('yes')});
   document.getElementById('ck-no').addEventListener('click',function(){setCk('no')});
+
+  /* телефон: ссылка для звонка собирается скриптом, номера нет в коде страницы */
+  document.querySelectorAll('.tel-link[data-t]').forEach(function(a){
+    try{a.href='tel:+'+atob(a.getAttribute('data-t')).split('').reverse().join('');}catch(e){}
+  });
 
   /* "Рассчитать стоимость" preselects task */
   document.querySelectorAll('[data-task]').forEach(function(a){a.addEventListener('click',function(){var s=document.getElementById('a-task');s.value=a.getAttribute('data-task');});});
