@@ -1,0 +1,8 @@
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [L,R=301]
+RewriteCond %{HTTP_HOST} ^www\.agrexpert\.ru$ [NC]
+RewriteRule ^(.*)$ https://agrexpert.ru/$1 [L,R=301]
+<FilesMatch "\.(jsonl|py|md)$">
+  Require all denied
+</FilesMatch>

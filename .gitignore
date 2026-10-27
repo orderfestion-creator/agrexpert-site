@@ -1,0 +1,4 @@
+# Live only on the server — never commit (Telegram bot token, saved leads)
+send.php
+private/
+__pycache__/

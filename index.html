@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Разработка и согласование АГР и АГО в Москве, МО и СПб | AGREXPERT</title>
+<meta name="description" content="Разработка и согласование АГР в Москве (ДГП, 1423-ПП) и АГО в Московской области, Санкт-Петербурге и регионах. Бесплатный аудит альбома за 24 часа, 3D-модели НПМ/ВПМ и ЦИМ в IFC.">
+<link rel="canonical" href="https://agrexpert.ru/">
+<meta property="og:type" content="website"><meta property="og:url" content="https://agrexpert.ru/">
+<meta property="og:title" content="Разработка и согласование АГР и АГО — AGREXPERT">
+<meta property="og:description" content="Альбомы АГР/АГО, 3D-модели и ЦИМ в IFC, аудит альбома за 24 часа. Москва, МО, СПб, регионы.">
+<meta property="og:image" content="https://agrexpert.ru/img/agr-v1-white.webp">
+<meta property="og:locale" content="ru_RU">
+<link rel="preload" as="image" href="img/agr-v1-white.webp">
+<!-- Яндекс Метрика 113822254 подключается скриптом внизу страницы после согласия на cookies -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"Organization","name":"AGREXPERT","url":"https://agrexpert.ru/","email":"order@agrexpert.ru","telephone":"+79006565574","areaServed":["Москва","Московская область","Санкт-Петербург","Россия"]},
+{"@type":"Service","serviceType":"Разработка и согласование АГР и АГО","provider":{"@type":"Organization","name":"AGREXPERT"},"areaServed":"RU"},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Чем АГР отличается от АГО?","acceptedAnswer":{"@type":"Answer","text":"АГР — московская процедура, свидетельство выдаёт ДГП. АГО — согласование в Московской области, Санкт-Петербурге и других регионах по ст. 40.1 ГрК РФ и ПП РФ № 857."}},
+{"@type":"Question","name":"Когда АГР в Москве не нужен?","acceptedAnswer":{"@type":"Answer","text":"Например, для нежилых зданий до двух этажей и до 1500 м² вне магистральных улиц и зон ОКН, для ИЖС и некапитальных объектов."}},
+{"@type":"Question","name":"Можно подать АГР без ГПЗУ?","acceptedAnswer":{"@type":"Answer","text":"Нет. Заявитель — правообладатель участка, который стоит на кадастровом учёте и имеет ГПЗУ."}},
+{"@type":"Question","name":"Действует ли свидетельство, выданное Москомархитектурой?","acceptedAnswer":{"@type":"Answer","text":"Да. ДГП стал правопреемником комитета, переоформлять ранее выданные свидетельства не нужно."}}
+]}]}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geologica:wght@400;500;600;700&family=Golos+Text:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: лист чертежа — сетка 12 колонок на «миллиметровке», штамп ГОСТ как сквозной мотив, красные карандашные пометки = замечания комиссии */
+:root{
+  --paper:#E9ECE6; --sheet:#F6F7F3; --ink:#16202A; --muted:#56626C; --line:#C6CCC3; --grid:rgba(22,32,42,.055);
+  --accent:#2C6A5B; --accent-ink:#F6F7F3; --red:#B5432E; --red-soft:rgba(181,67,46,.09); --ok-soft:rgba(44,106,91,.10);
+  --f-display:"Geologica","Golos Text",system-ui,sans-serif;
+  --f-body:"Golos Text",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --s-1:.8125rem; --s0:1rem; --s1:1.1875rem; --s2:1.5rem; --s3:2.125rem; --s4:clamp(2.25rem,5.2vw,3.75rem);
+  --wrap:1200px; --r:3px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#11161B; --sheet:#182027; --ink:#E4E9E3; --muted:#98A3AC; --line:#2C3741; --grid:rgba(228,233,227,.045);
+  --accent:#6BB49F; --accent-ink:#0E1A16; --red:#E37A63; --red-soft:rgba(227,122,99,.12); --ok-soft:rgba(107,180,159,.12); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#11161B; --sheet:#182027; --ink:#E4E9E3; --muted:#98A3AC; --line:#2C3741; --grid:rgba(228,233,227,.045);
+  --accent:#6BB49F; --accent-ink:#0E1A16; --red:#E37A63; --red-soft:rgba(227,122,99,.12); --ok-soft:rgba(107,180,159,.12); color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:var(--s0);line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+a{color:inherit}
+h1,h2,h3{font-family:var(--f-display);font-weight:600;line-height:1.12;letter-spacing:-.015em;text-wrap:balance;margin:0}
+h2{font-size:var(--s3)}
+h3{font-size:var(--s1);letter-spacing:-.005em}
+p{margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.mono{font-family:var(--f-mono);font-size:var(--s-1);letter-spacing:.02em}
+.eyebrow{font-family:var(--f-mono);font-size:var(--s-1);text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+.lead{color:var(--muted);font-size:var(--s1);max-width:62ch}
+section{padding-block:clamp(56px,8vw,104px)}
+.sec-head{display:grid;gap:14px;margin-bottom:clamp(28px,4vw,48px);max-width:760px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;font:500 var(--s0)/1 var(--f-body);padding:15px 22px;border-radius:var(--r);text-decoration:none;border:1.5px solid var(--ink);cursor:pointer;transition:transform .15s ease,background .15s ease,color .15s ease}
+.btn-primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn-primary:hover{transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+.btn svg{width:16px;height:16px}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:64px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font:700 1.0625rem/1 var(--f-display);letter-spacing:.06em}
+.logo-mark{width:28px;height:28px}
+.nav{display:flex;gap:26px;font-size:.9375rem}
+.nav a{text-decoration:none;color:var(--muted)}
+.nav a:hover{color:var(--ink)}
+.top .btn{padding:11px 16px;font-size:.9375rem}
+@media (max-width:900px){.nav{display:none}}
+@media (max-width:480px){.top .btn span{display:none}}
+
+/* hero */
+.hero{padding-block:clamp(40px,6vw,80px) clamp(48px,6vw,88px);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px;border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(28px,5vw,64px);align-items:center}
+@media (max-width:960px){.hero-grid{grid-template-columns:minmax(0,1fr)}}
+.hero-copy{display:grid;gap:22px;min-width:0}
+.hero h1{font-size:var(--s4);font-weight:700;letter-spacing:-.03em}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .lead{font-size:clamp(1.0625rem,1.6vw,1.25rem)}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line);margin-top:14px}
+.facts div{padding:16px 16px 0 0;display:grid;gap:4px;align-content:start}
+.facts div+div{padding-left:16px;border-left:1px solid var(--line)}
+.facts b{font:600 1.375rem/1.1 var(--f-display);letter-spacing:-.01em}
+.facts span{font-size:var(--s-1);color:var(--muted);line-height:1.4}
+@media (max-width:560px){.facts{grid-template-columns:1fr}.facts div+div{padding-left:0;border-left:0;border-top:1px solid var(--line)}.facts div{padding:14px 0}}
+
+/* album slider */
+.album{margin:0;background:var(--sheet);border:1.5px solid var(--ink);border-radius:2px;min-width:0;display:grid;grid-template-columns:minmax(0,1fr)}
+.album-top{display:flex;justify-content:space-between;gap:12px;padding:9px 12px;border-bottom:1.5px solid var(--ink);font-family:var(--f-mono);font-size:.6875rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.album-top span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.album-top span:last-child{flex:none}
+.album-top b{color:var(--ink);font-weight:500}
+.album-view{position:relative;aspect-ratio:16/10;max-width:100%;overflow:hidden;background:#fff;touch-action:pan-y}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity .9s ease}
+.slide.is-on{opacity:1;z-index:1}
+.slide img{width:100%;height:100%;display:block;max-width:none}
+.slide .fit-cover{object-fit:cover}
+.slide .fit-contain{object-fit:contain;padding:4% 3%;background:#fff}
+.slide.is-on .fit-cover{animation:kb 7s ease-out both}
+@keyframes kb{from{transform:scale(1.001)}to{transform:scale(1.07) translate(-1%,-1%)}}
+.album-cap{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:14px 14px 10px;border-top:1.5px solid var(--ink)}
+.cap-text{display:grid;gap:4px;min-width:0;min-height:4.2em}
+.cap-text b{font:600 1rem/1.25 var(--f-display)}
+.cap-text span{font-size:.875rem;color:var(--muted);line-height:1.45}
+.swatches{display:flex;gap:5px;flex:none;padding-top:2px}
+.swatches i{width:22px;height:22px;border:1px solid var(--line);display:block}
+.album-ctrl{display:flex;align-items:center;gap:12px;padding:4px 14px 12px}
+.al-btn{width:36px;height:36px;display:grid;place-items:center;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:var(--r);cursor:pointer;flex:none}
+.al-btn:hover{border-color:var(--ink)}
+.al-btn svg{width:16px;height:16px}
+.al-bar{flex:1;height:2px;background:var(--line);position:relative;overflow:hidden}
+.al-bar span{position:absolute;inset:0 auto 0 0;width:0;background:var(--accent)}
+.al-count{color:var(--muted);flex:none}
+.album-note{font-size:.75rem;color:var(--muted);padding:0 14px 12px;margin:0}
+
+/* 2026 changes */
+.changes{background:var(--ink);color:var(--paper);padding-block:clamp(44px,6vw,72px)}
+.changes .eyebrow{color:color-mix(in srgb,var(--paper) 65%,transparent)}
+.changes-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,2fr);gap:clamp(24px,4vw,56px);align-items:start}
+@media (max-width:860px){.changes-grid{grid-template-columns:1fr}}
+.changes h2{font-size:var(--s2);margin-top:12px}
+.changes ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:color-mix(in srgb,var(--paper) 18%,transparent);border:1px solid color-mix(in srgb,var(--paper) 18%,transparent)}
+@media (max-width:700px){.changes ol{grid-template-columns:1fr}}
+.changes li{background:var(--ink);padding:20px;display:grid;gap:8px;align-content:start}
+.changes time{font-family:var(--f-mono);font-size:var(--s-1);color:var(--accent)}
+.changes li b{font:600 1.0625rem/1.25 var(--f-display)}
+.changes li p{font-size:.9375rem;color:color-mix(in srgb,var(--paper) 72%,transparent)}
+
+/* redline problems */
+.problems{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+@media (max-width:760px){.problems{grid-template-columns:1fr}}
+.pr{background:var(--sheet);border:1px solid var(--line);display:grid;grid-template-rows:auto 1fr;min-width:0}
+.pr-remark{padding:22px 22px 18px;border-bottom:1px dashed var(--line);display:grid;gap:10px;position:relative}
+.pr-remark .tag{font-family:var(--f-mono);font-size:.71875rem;color:var(--red);text-transform:uppercase;letter-spacing:.1em;display:flex;align-items:center;gap:8px}
+.pr-remark .tag::before{content:"";width:14px;height:14px;border:1.6px solid var(--red);border-radius:50%}
+.pr-remark h3{font-size:var(--s1)}
+.pr-remark p{color:var(--muted);font-size:.9375rem}
+.pr-fix{padding:18px 22px 22px;display:grid;gap:8px;background:var(--ok-soft)}
+.pr-fix .tag{font-family:var(--f-mono);font-size:.71875rem;color:var(--accent);text-transform:uppercase;letter-spacing:.1em}
+.pr-fix p{font-size:.9375rem}
+
+/* services */
+.svc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1.5px solid var(--ink);border-left:1px solid var(--line)}
+@media (max-width:960px){.svc{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.svc{grid-template-columns:1fr}}
+.svc a{display:grid;grid-template-rows:auto auto 1fr auto;gap:12px;padding:26px 24px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);text-decoration:none;min-width:0;transition:background .2s}
+.svc a:hover{background:var(--sheet)}
+.svc .code{font-family:var(--f-mono);font-size:var(--s-1);color:var(--muted);display:flex;justify-content:space-between;gap:12px}
+.svc .code b{color:var(--accent);font-weight:500}
+.svc p{color:var(--muted);font-size:.9375rem}
+.svc .more{font-size:.9375rem;font-weight:500;color:var(--accent);display:flex;align-items:center;gap:8px}
+.svc a:hover .more svg{transform:translateX(3px)}
+.svc .more svg{width:14px;height:14px;transition:transform .2s}
+
+/* audit form */
+.audit{background:var(--sheet);border-block:1px solid var(--line)}
+.audit-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,5vw,72px);align-items:start}
+@media (max-width:900px){.audit-grid{grid-template-columns:1fr}}
+.checks{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:10px}
+.checks li{display:grid;grid-template-columns:22px 1fr;gap:10px;font-size:.9375rem}
+.checks li::before{content:"";width:16px;height:16px;margin-top:4px;border:1.5px solid var(--accent);background:linear-gradient(var(--accent),var(--accent)) center/8px 8px no-repeat}
+form.card{background:var(--paper);border:1.5px solid var(--ink);padding:clamp(20px,3vw,32px);display:grid;gap:16px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:560px){.row2{grid-template-columns:1fr}}
+.field{display:grid;gap:6px;min-width:0}
+.field label{font-family:var(--f-mono);font-size:.71875rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.field input,.field select,.field textarea{font:inherit;font-size:1rem;color:var(--ink);background:var(--sheet);border:1px solid var(--line);border-bottom:1.5px solid var(--ink);border-radius:0;padding:11px 12px;width:100%}
+.field textarea{min-height:84px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--ok-soft)}
+.consent{display:grid;grid-template-columns:20px 1fr;gap:10px;font-size:.8125rem;color:var(--muted);align-items:start}
+.consent input{margin-top:3px;accent-color:var(--accent)}
+.form-note{font-size:.8125rem;color:var(--muted)}
+.form-msg{font-size:.9375rem;padding:12px 14px;border-left:3px solid var(--accent);background:var(--ok-soft)}
+.form-msg.is-err{border-color:var(--red);background:var(--red-soft)}
+form .btn{justify-content:center}
+
+/* objects */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.chip{font:500 .875rem/1 var(--f-body);padding:9px 14px;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:99px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.objs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+@media (max-width:760px){.objs{grid-template-columns:1fr}}
+.obj{background:var(--sheet);border:1px solid var(--line);padding:24px;display:grid;gap:14px;align-content:start}
+.obj-head{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
+.obj dl{margin:0;display:grid;grid-template-columns:110px 1fr;gap:8px 14px;font-size:.9375rem}
+@media (max-width:420px){.obj dl{grid-template-columns:1fr}.obj dd{margin-bottom:6px}}
+.obj dt{font-family:var(--f-mono);font-size:.71875rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding-top:3px}
+.obj dd{margin:0}
+.pill{font-family:var(--f-mono);font-size:.71875rem;padding:4px 8px;border:1px solid var(--accent);color:var(--accent);border-radius:2px;white-space:nowrap}
+
+/* process */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));counter-reset:s;border-top:1.5px solid var(--ink)}
+@media (max-width:860px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:540px){.steps{grid-template-columns:1fr}}
+.steps li{counter-increment:s;padding:24px 24px 28px 0;display:grid;gap:10px;align-content:start;border-bottom:1px solid var(--line)}
+.steps li::before{content:counter(s,decimal-leading-zero);font:500 var(--s-1) var(--f-mono);color:var(--accent)}
+.steps .when{font-family:var(--f-mono);font-size:.75rem;color:var(--muted)}
+.steps p{color:var(--muted);font-size:.9375rem;max-width:36ch}
+
+/* why */
+.why{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:clamp(28px,5vw,72px);align-items:start}
+@media (max-width:860px){.why{grid-template-columns:1fr}}
+.why-list{display:grid;gap:0;border-top:1.5px solid var(--ink)}
+.why-list div{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.4fr);gap:20px;padding:20px 0;border-bottom:1px solid var(--line)}
+@media (max-width:560px){.why-list div{grid-template-columns:1fr;gap:6px}}
+.why-list b{font:600 1.0625rem/1.3 var(--f-display)}
+.why-list p{color:var(--muted);font-size:.9375rem}
+
+/* faq */
+.faq{display:grid;gap:0;border-top:1.5px solid var(--ink);max-width:880px}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:20px 40px 20px 0;font:600 1.0625rem/1.35 var(--f-display);position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:4px;top:16px;font:400 1.5rem/1 var(--f-mono);color:var(--accent);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 0 22px;color:var(--muted);max-width:70ch}
+
+/* final */
+.final{background:var(--ink);color:var(--paper)}
+.final-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:start}
+@media (max-width:860px){.final-grid{grid-template-columns:1fr}}
+.final h2{font-size:var(--s3)}
+.final .lead{color:color-mix(in srgb,var(--paper) 70%,transparent);margin-top:14px}
+.contacts{display:grid;gap:0;margin-top:28px;border-top:1px solid color-mix(in srgb,var(--paper) 20%,transparent)}
+.contacts div{display:grid;grid-template-columns:120px 1fr;gap:12px;padding:14px 0;border-bottom:1px solid color-mix(in srgb,var(--paper) 20%,transparent);align-items:baseline}
+.contacts dt{font-family:var(--f-mono);font-size:.71875rem;text-transform:uppercase;letter-spacing:.1em;color:color-mix(in srgb,var(--paper) 55%,transparent)}
+.contacts dd{margin:0;font:500 1.0625rem/1.4 var(--f-display);user-select:all;overflow-wrap:anywhere}
+.contacts a{text-decoration:none}
+.final form.card{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+footer{background:var(--ink);color:color-mix(in srgb,var(--paper) 55%,transparent);border-top:1px solid color-mix(in srgb,var(--paper) 14%,transparent);padding-block:24px;font-size:.8125rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+footer a{color:inherit}
+
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.form-note a,.consent a{color:var(--accent)}
+footer .f-links{display:flex;flex-wrap:wrap;gap:8px 18px}
+.cookie{position:fixed;z-index:30;left:max(16px,env(safe-area-inset-left,0px));right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));max-width:620px;margin-inline:auto;background:var(--sheet);color:var(--ink);border:1.5px solid var(--ink);padding:16px 18px;display:grid;gap:12px;font-size:.875rem;box-shadow:0 10px 30px rgba(0,0,0,.18)}
+.cookie a{color:var(--accent)}
+.cookie-btns{display:flex;flex-wrap:wrap;gap:8px}
+.cookie .btn{padding:10px 14px;font-size:.875rem}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="AGREXPERT — на главную">
+      <svg class="logo-mark" viewBox="0 0 28 28" aria-hidden="true"><rect x="1" y="1" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M6 21 L14 7 L22 21 M9.5 15.5 H18.5" fill="none" stroke="var(--accent)" stroke-width="2"/></svg>
+      AGREXPERT
+    </a>
+    <nav class="nav" aria-label="Разделы">
+      <a href="#services">Услуги</a>
+      <a href="#objects">Объекты</a>
+      <a href="#process">Как работаем</a>
+      <a href="#faq">Вопросы</a>
+      <a href="/blog/">Блог</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="btn btn-primary" href="#audit"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>Аудит альбома</span></a>
+  </div>
+</header>
+
+<main id="top">
+<!-- 1. HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">Центр градостроительной экспертизы и согласований</p>
+      <h1>Разработка и согласование <em>АГР и АГО</em> без лишних кругов замечаний</h1>
+      <p class="lead">Готовим альбомы, 3D-модели и ЦИМ в IFC, проверяем чужие альбомы перед подачей и доводим проект до решения в Москве, Московской области, Санкт-Петербурге и других регионах.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#audit"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>Бесплатный аудит альбома за 24 часа</a>
+        <a class="btn btn-ghost" href="#audit" data-task="Расчёт стоимости">Рассчитать стоимость</a>
+      </div>
+      <div class="facts">
+        <div><b>24 часа</b><span>экспресс-аудит рисков по ГПЗУ, ТЭП и фасадам</span></div>
+        <div><b>1423-ПП</b><span>работаем по новому порядку Москвы с 30.09.2026</span></div>
+        <div><b>IFC4</b><span>НПМ, ВПМ и ЦИМ из одной геометрии</span></div>
+      </div>
+    </div>
+
+    <figure class="album" id="album" aria-roledescription="слайдер" aria-label="Пример альбома АГР из нашей практики">
+      <div class="album-top"><span>Альбом АГР · Реконструкция здания под магазин · Москва</span><span>Лист <b id="al-sheet">08</b> / 28</span></div>
+      <div class="album-view">
+        <div class="slide is-on" data-sheet="08" data-title="Вариант 1 · Белый клинкер и графит" data-cap="Общий вид. Белая клинкерная плитка, графитовые профили, светлый ритм витражей." data-sw="#ECE9E1|#4A4D50|#8B8E90"><img src="img/agr-v1-white.webp" alt="Вариант 1 · Белый клинкер и графит. Общий вид. Белая клинкерная плитка, графитовые профили, светлый ритм витражей." class="fit-cover" decoding="async"></div>
+        <div class="slide" data-sheet="13" data-title="Вариант 2 · Зелёный клинкер и бронза" data-cap="Входная группа. Глазурованный зелёный клинкер, бронзовые обрамления проёмов." data-sw="#3E5C45|#6E4C37|#8B8E90" aria-hidden="true"><img src="img/agr-v2-green.webp" alt="Вариант 2 · Зелёный клинкер и бронза. Входная группа. Глазурованный зелёный клинкер, бронзовые обрамления проёмов." class="fit-cover" loading="lazy" decoding="async"></div>
+        <div class="slide" data-sheet="18" data-title="Вариант 3 · Терракотовый клинкер" data-cap="Входная группа. Терракотовый кирпич, графитовый каркас и козырёк." data-sw="#B4603F|#3E4145|#6E7174" aria-hidden="true"><img src="img/agr-v3-terracotta.webp" alt="Вариант 3 · Терракотовый клинкер. Входная группа. Терракотовый кирпич, графитовый каркас и козырёк." class="fit-cover" loading="lazy" decoding="async"></div>
+        <div class="slide" data-sheet="10" data-title="Цветовое решение фасада 1–7" data-cap="Развёртка с высотными отметками, осями и ведомостью отделки." data-sw="" aria-hidden="true"><img src="img/agr-facade-1-7.webp" alt="Цветовое решение фасада 1–7. Развёртка с высотными отметками, осями и ведомостью отделки." class="fit-contain" loading="lazy" decoding="async"></div>
+        <div class="slide" data-sheet="24" data-title="Архитектурное освещение" data-cap="Подсветка фасада: настенные светильники подчёркивают ритм проёмов и вход." data-sw="#2A2622|#E9B66B|#ECE9E1" aria-hidden="true"><img src="img/agr-lighting.webp" alt="Архитектурное освещение. Подсветка фасада: настенные светильники подчёркивают ритм проёмов и вход." class="fit-cover" loading="lazy" decoding="async"></div>
+        <div class="slide" data-sheet="23" data-title="Благоустройство и МАФ" data-cap="Покрытия, ограждения, малые архитектурные формы у входной группы." data-sw="" aria-hidden="true"><img src="img/agr-landscape.webp" alt="Благоустройство и МАФ. Покрытия, ограждения, малые архитектурные формы у входной группы." class="fit-cover" loading="lazy" decoding="async"></div>
+      </div>
+      <figcaption class="album-cap">
+        <div class="cap-text"><b id="al-title">Вариант 1 · Белый клинкер и графит</b><span id="al-cap">Общий вид. Белая клинкерная плитка, графитовые профили, светлый ритм витражей.</span></div>
+        <div class="swatches" id="al-sw" aria-hidden="true"><i style="background:#ECE9E1"></i><i style="background:#4A4D50"></i><i style="background:#8B8E90"></i></div>
+      </figcaption>
+      <div class="album-ctrl">
+        <button type="button" class="al-btn" id="al-prev" aria-label="Предыдущий лист"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13 8H3M7 4 3 8l4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <div class="al-bar" aria-hidden="true"><span id="al-prog"></span></div>
+        <span class="mono al-count" id="al-count">01 / 06</span>
+        <button type="button" class="al-btn" id="al-next" aria-label="Следующий лист"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+      </div>
+      <p class="album-note">Пример из практики: три варианта фасадов в одном альбоме. Данные заказчика и адрес скрыты.</p>
+    </figure>
+  </div>
+</section>
+
+<!-- 1b. CHANGES 2026 -->
+<section class="changes" aria-labelledby="ch-h">
+  <div class="wrap changes-grid">
+    <div>
+      <p class="eyebrow">Что изменилось в 2026 году</p>
+      <h2 id="ch-h">Москва сменила ведомство, порядок и требования к моделям</h2>
+    </div>
+    <ol>
+      <li><time>с 03.12.2025</time><b>Москомархитектура вошла в ДГП</b><p>Свидетельства АГР выдаёт Департамент градостроительной политики Москвы (2993-ПП). Ранее выданные документы действуют.</p></li>
+      <li><time>с 02.04.2026</time><b>ЦИМ в формате IFC обязательна</b><p>К НПМ и ВПМ в FBX добавилась информационная модель IFC4 с ведомостью ТЭП в XML. ТЭП в модели и в альбоме должны совпадать.</p></li>
+      <li><time>с 30.09.2026</time><b>1423-ПП вместо 284-ПП</b><p>Проекты рассматривает Архитектурная комиссия, свидетельство действует три года. Запросы, поданные раньше, идут по старым правилам.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 2. PROBLEMS -->
+<section aria-labelledby="pr-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Замечания, которые мы снимаем</p>
+      <h2 id="pr-h">Почему альбомы АГР и АГО возвращают на доработку</h2>
+      <p class="lead">Чаще всего отказ получают не за слабую архитектуру, а за расхождения в данных и формальные ошибки. Их можно найти до подачи.</p>
+    </div>
+    <div class="problems">
+      <article class="pr">
+        <div class="pr-remark"><span class="tag">Замечание</span><h3>Фасад не вписывается в окружающую застройку</h3><p>Комиссия возвращает решение из-за материалов, колористики, ритма проёмов или высотности относительно соседних зданий.</p></div>
+        <div class="pr-fix"><span class="tag">Как решаем</span><p>Делаем развёртки по всем улицам с соседней застройкой, подбираем материалы и цвета RAL/NCS, готовим варианты решения для обсуждения.</p></div>
+      </article>
+      <article class="pr">
+        <div class="pr-remark"><span class="tag">Замечание</span><h3>ТЭП не совпадают с ГПЗУ</h3><p>Площадь, высота, процент застройки или отступы выходят за предельные параметры участка.</p></div>
+        <div class="pr-fix"><span class="tag">Как решаем</span><p>Сквозная сверка ТЭП: ГПЗУ, ЕГРН, альбом, ведомость XML и модель. Расхождения исправляем до подачи.</p></div>
+      </article>
+      <article class="pr">
+        <div class="pr-remark"><span class="tag">Замечание</span><h3>Модель не проходит проверку</h3><p>Превышен лимит полигонов, кириллица в именах, не та система координат, элементы IFC в классе Proxy, нет наборов свойств RusSet.</p></div>
+        <div class="pr-fix"><span class="tag">Как решаем</span><p>Собираем НПМ, ВПМ и ЦИМ из одного источника геометрии в МСК Москвы, проверяем классы IFC и лимиты до загрузки на mos.ru.</p></div>
+      </article>
+      <article class="pr">
+        <div class="pr-remark"><span class="tag">Замечание</span><h3>Проект стоит, сроки уходят</h3><p>Каждый повторный круг добавляет регламентный срок рассмотрения, а за ним сдвигаются ПД, экспертиза и разрешение на строительство.</p></div>
+        <div class="pr-fix"><span class="tag">Как решаем</span><p>Один ответственный эксперт ведёт проект, отвечает на замечания в короткие сроки и держит заказчика в курсе статуса.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 3. SERVICES -->
+<section id="services" aria-labelledby="svc-h" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Услуги</p>
+      <h2 id="svc-h">Облик объекта под ключ: от проверки ГПЗУ до решения комиссии</h2>
+    </div>
+    <div class="svc">
+      <a href="/services/agr-moscow/">
+        <span class="code"><b>Москва</b>ДГП · 1423-ПП</span>
+        <h3>Согласование АГР в Москве</h3>
+        <p>Альбом АГР, НПМ, ВПМ и ЦИМ в IFC, подача через mos.ru, работа с замечаниями Архитектурной комиссии.</p>
+        <span class="more">Подробнее об АГР <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
+      </a>
+      <a href="/services/ago-mo/">
+        <span class="code"><b>МО</b>Мособлархитектура · РПГУ</span>
+        <h3>Согласование АГО в Московской области</h3>
+        <p>Материалы АГО по региональному регламенту, благоустройство, подсветка, электронная подача через портал госуслуг МО.</p>
+        <span class="more">Подробнее об АГО в МО <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
+      </a>
+      <a href="/services/ago-spb/">
+        <span class="code"><b>СПб</b>КГА · 692-147</span>
+        <h3>Согласование АГО в Санкт-Петербурге</h3>
+        <p>Альбом по требованиям КГА к составу и форме материалов, подача через gu.spb.ru, сопровождение до решения.</p>
+        <span class="more">Подробнее об АГО в СПб <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
+      </a>
+      <a href="/services/ago-regions/">
+        <span class="code"><b>Регионы</b>ПП РФ № 857</span>
+        <h3>АГО в других регионах России</h3>
+        <p>Работаем по ст. 40.1 ГрК РФ и требованиям ПЗЗ конкретного муниципалитета. Подача электронная, выезд не нужен.</p>
+        <span class="more">Подробнее об АГО в регионах <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
+      </a>
+      <a href="/services/audit-and-fix/">
+        <span class="code"><b>Аудит</b>после отказа</span>
+        <h3>Аудит альбома и снятие замечаний</h3>
+        <p>Берём альбом с замечаниями или отказом, разбираем причины, дорабатываем и подаём повторно.</p>
+        <span class="more">Заказать аудит <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
+      </a>
+      <a href="/services/3d-ifc-models/">
+        <span class="code"><b>3D / BIM</b>FBX · IFC4</span>
+        <h3>3D-модели и ЦИМ для АГР</h3>
+        <p>НПМ и ВПМ в FBX, ЦИМ в IFC4 Reference View с ведомостью ТЭП. Можно отдельно от альбома, если его делает ваш архитектор.</p>
+        <span class="more">Подробнее о моделях <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 4. AUDIT FORM -->
+<section id="audit" class="audit" aria-labelledby="au-h">
+  <div class="wrap audit-grid">
+    <div class="sec-head" style="margin:0">
+      <p class="eyebrow">Экспресс-аудит · бесплатно</p>
+      <h2 id="au-h">Отправьте альбом АГР или АГО на проверку до подачи</h2>
+      <p class="lead">За 24 часа после получения материалов пришлём на почту список рисков и что с ними делать. Альбом можно также отправить на order@agrexpert.ru.</p>
+      <ul class="checks">
+        <li>Соответствие ТЭП градостроительному плану участка</li>
+        <li>Состав альбома по регламенту вашего региона</li>
+        <li>Развёртки, колористика, материалы, благоустройство</li>
+        <li>Модели НПМ, ВПМ и ЦИМ: формат, лимиты, классы IFC</li>
+        <li>Нужен ли АГР вообще или объект попадает под исключение</li>
+      </ul>
+    </div>
+    <form class="card" id="audit-form" data-endpoint="/send.php" novalidate>
+      <div class="row2">
+        <div class="field"><label for="a-name">Имя</label><input id="a-name" name="name" autocomplete="name" required placeholder="Ирина"></div>
+        <div class="field"><label for="a-role">Роль</label>
+          <select id="a-role" name="role"><option>ГИП</option><option>Заказчик / девелопер</option><option>Архитектор</option><option>Другое</option></select></div>
+      </div>
+      <div class="row2">
+        <div class="field"><label for="a-phone">E-mail или телефон</label><input id="a-phone" name="contact" required placeholder="name@company.ru"></div>
+        <div class="field"><label for="a-region">Регион</label>
+          <select id="a-region" name="region"><option>Москва</option><option>Московская область</option><option>Санкт-Петербург</option><option>Другой регион</option></select></div>
+      </div>
+      <div class="field"><label for="a-task">Задача</label>
+        <select id="a-task" name="task"><option>Аудит альбома</option><option>Разработка АГР / АГО</option><option>Снятие замечаний после отказа</option><option>3D-модели и ЦИМ</option><option>Расчёт стоимости</option></select></div>
+      <div class="field"><label for="a-link">Ссылка на альбом</label><input id="a-link" name="link" inputmode="url" placeholder="Яндекс Диск, Google Drive или облако"></div>
+      <div class="field"><label for="a-msg">Комментарий</label><textarea id="a-msg" name="message" placeholder="Адрес объекта, площадь, что уже есть: ГПЗУ, эскиз, замечания"></textarea></div>
+      <div class="hp" aria-hidden="true"><label for="a-web">Сайт</label><input id="a-web" name="website" tabindex="-1" autocomplete="off"></div>
+      <label class="consent" for="a-ok"><input type="checkbox" id="a-ok" name="consent" value="1" required><span>Даю <a href="/consent/" target="_blank">согласие на обработку персональных данных</a></span></label>
+      <button class="btn btn-primary" type="submit">Получить аудит через 24 часа</button>
+      <p class="form-note">Нажимая кнопку, вы подтверждаете, что ознакомились с <a href="/privacy/" target="_blank">Политикой обработки персональных данных</a>. Материалы альбома не передаём третьим лицам, NDA подписываем по запросу.</p>
+      <p class="form-msg" hidden></p>
+    </form>
+  </div>
+</section>
+
+<!-- 5. OBJECTS -->
+<section id="objects" aria-labelledby="ob-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Типы объектов</p>
+      <h2 id="ob-h">С какими объектами работаем</h2>
+      <p class="lead">Требования к облику и состав материалов зависят от назначения здания и его места в городе.</p>
+    </div>
+    <div class="chips" role="group" aria-label="Фильтр по типу объекта">
+      <button class="chip" type="button" data-f="all" aria-pressed="true">Все</button>
+      <button class="chip" type="button" data-f="res" aria-pressed="false">Жилые</button>
+      <button class="chip" type="button" data-f="log" aria-pressed="false">Склады и логистика</button>
+      <button class="chip" type="button" data-f="ret" aria-pressed="false">Торговля и общепит</button>
+      <button class="chip" type="button" data-f="pub" aria-pressed="false">Общественные</button>
+    </div>
+    <!-- Сюда позже добавить реальные кейсы: объект, задача, что сделано, результат, срок. Без данных заказчика. -->
+    <div class="objs" id="objs">
+      <article class="obj" data-t="res">
+        <div class="obj-head"><h3>Многоквартирные дома и ЖК</h3><span class="pill">АГР · АГО</span></div>
+        <dl><dt>Задача</dt><dd>Новое строительство или реконструкция с изменением высоты и фасадов</dd>
+            <dt>Что делаем</dt><dd>Альбом с развёртками по всем улицам, благоустройство, 3D-модели квартала, ТЭП по корпусам</dd></dl>
+      </article>
+      <article class="obj" data-t="log">
+        <div class="obj-head"><h3>Склады и логистические комплексы</h3><span class="pill">АГО МО</span></div>
+        <dl><dt>Задача</dt><dd>Объект вдоль федеральной или региональной трассы, где исключение по площади не работает</dd>
+            <dt>Что делаем</dt><dd>Проверяем, нужен ли АГО, прорабатываем фасады, подсветку, схему движения транспорта</dd></dl>
+      </article>
+      <article class="obj" data-t="ret">
+        <div class="obj-head"><h3>Магазины, ТЦ, общепит</h3><span class="pill">АГР Москва</span></div>
+        <dl><dt>Задача</dt><dd>Реконструкция здания под магазин, новые входные группы, витрины и козырьки</dd>
+            <dt>Что делаем</dt><dd>Разделяем, что идёт в АГР, а что в паспорт фасада или колористику, готовим альбом и модели</dd></dl>
+      </article>
+      <article class="obj" data-t="pub">
+        <div class="obj-head"><h3>Офисы, школы, медицина, спорт</h3><span class="pill">АГР · АГО</span></div>
+        <dl><dt>Задача</dt><dd>Общественное здание на магистральной улице или рядом с объектом культурного наследия</dd>
+            <dt>Что делаем</dt><dd>Альбом с учётом дизайн-кодов и зон ОКН, увязка с генпланом и инженерией</dd></dl>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 6. PROCESS -->
+<section id="process" aria-labelledby="ps-h" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Как работаем</p>
+      <h2 id="ps-h">От первого звонка до решения комиссии</h2>
+    </div>
+    <ol class="steps">
+      <li><h3>Экспресс-аудит</h3><span class="when">24 часа</span><p>Смотрим ГПЗУ, ТЭП и эскиз, оцениваем риски и называем срок и стоимость.</p></li>
+      <li><h3>Договор</h3><span class="when">1–2 дня</span><p>Фиксируем состав работ, сроки этапов и сколько кругов замечаний входит в цену.</p></li>
+      <li><h3>Альбом</h3><span class="when">от 2 недель</span><p>Разрабатываем или дорабатываем альбом по действующему регламенту региона.</p></li>
+      <li><h3>3D-модели и ЦИМ</h3><span class="when">параллельно</span><p>НПМ, ВПМ и IFC из одной геометрии, привязка к координатам, проверка перед загрузкой.</p></li>
+      <li><h3>Подача и замечания</h3><span class="when">по регламенту</span><p>Подаём через mos.ru, РПГУ МО или gu.spb.ru и отвечаем на вопросы комиссии.</p></li>
+      <li><h3>Решение</h3><span class="when">финал</span><p>Передаём свидетельство или решение о согласовании и исходники для стадии ПД.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 7. WHY -->
+<section aria-labelledby="wy-h" style="padding-top:0">
+  <div class="wrap why">
+    <div class="sec-head" style="margin:0">
+      <p class="eyebrow">Почему нам доверяют ГИПы</p>
+      <h2 id="wy-h">Архитекторы и проектировщики, которые сами выпускают документацию</h2>
+    </div>
+    <div class="why-list">
+      <div><b>Ищем решение, а не спорим</b><p>Предлагаем компромисс, который устроит комиссию и не съест полезную площадь и бюджет заказчика.</p></div>
+      <div><b>Знаем смежные разделы</b><p>Увязываем облик с конструктивом, инженерией и генпланом, чтобы АГР не пришлось переделывать на стадии ПД.</p></div>
+      <div><b>Следим за регламентами</b><p>Работаем по 1423-ПП, требованиям ДГП к IFC, ПП РФ № 857 и региональным порядкам МО и Петербурга.</p></div>
+      <div><b>Работаем по всей России</b><p>Подача в Москве, МО и СПб электронная, поэтому место нахождения объекта не влияет на сроки.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" aria-labelledby="fq-h" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Частые вопросы</p>
+      <h2 id="fq-h">Коротко об АГР и АГО</h2>
+    </div>
+    <div class="faq">
+      <details><summary>Чем АГР отличается от АГО?</summary><p>АГР (архитектурно-градостроительное решение) — московская процедура, свидетельство выдаёт ДГП. АГО (архитектурно-градостроительный облик) — согласование в Московской области, Санкт-Петербурге и других регионах по ст. 40.1 ГрК РФ и ПП РФ № 857. Состав материалов и сроки у них разные.</p></details>
+      <details><summary>Когда АГР в Москве не нужен?</summary><p>Например, для нежилых зданий до двух этажей и до 1500 м² вне магистральных улиц и зон ОКН, для ИЖС и некапитальных объектов. Условия работают вместе, поэтому склад на магистрали может попасть под АГР. Проверим ваш объект бесплатно.</p></details>
+      <details><summary>Сколько времени занимает согласование?</summary><p>Альбом готовится от двух недель до трёх месяцев в зависимости от объекта. Регламентное рассмотрение в Москве по 1423-ПП — до 18 дней, в МО — около 10 рабочих дней, в СПб — до 15–22 рабочих дней. Реальный срок зависит от количества кругов замечаний.</p></details>
+      <details><summary>Можно подать АГР без ГПЗУ?</summary><p>Нет. Заявитель — правообладатель участка, который стоит на кадастровом учёте и имеет ГПЗУ. Если ГПЗУ ещё нет, начнём с него.</p></details>
+      <details><summary>Действует ли свидетельство, выданное Москомархитектурой?</summary><p>Да. ДГП стал правопреемником комитета, переоформлять ранее выданные свидетельства не нужно. Корректировка понадобится, если в ходе стройки изменились высота или фасады.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- 8. FINAL -->
+<section id="contacts" class="final" aria-labelledby="fn-h">
+  <div class="wrap final-grid">
+    <div>
+      <h2 id="fn-h">Снимем риск возврата до подачи</h2>
+      <p class="lead">Просим обращаться письменно: на почту или через форму. Телефонная связь не всегда стабильна, а письмо с материалами по объекту точно дойдёт до эксперта.</p>
+      <dl class="contacts">
+        <div><dt>E-mail</dt><dd><a href="mailto:order@agrexpert.ru">order@agrexpert.ru</a></dd></div>
+        <div><dt>Telegram</dt><dd><a href="https://t.me/archirider" target="_blank" rel="noopener">@archirider</a></dd></div>
+        <div><dt>Телефон</dt><dd><a href="tel:+79006565574">+7 900 656-55-74</a></dd></div>
+      </dl>
+    </div>
+    <form class="card" id="call-form" data-endpoint="/send.php" novalidate>
+      <h3>Напишите нам об объекте</h3>
+      <div class="field"><label for="c-name">Имя</label><input id="c-name" name="name" autocomplete="name" required></div>
+      <div class="field"><label for="c-phone">E-mail или телефон</label><input id="c-phone" name="contact" required placeholder="name@company.ru"></div>
+      <div class="field"><label for="c-msg">Вопрос</label><textarea id="c-msg" name="message" placeholder="Регион, тип объекта, что нужно согласовать"></textarea></div>
+      <div class="hp" aria-hidden="true"><label for="c-web">Сайт</label><input id="c-web" name="website" tabindex="-1" autocomplete="off"></div>
+      <label class="consent" for="c-ok"><input type="checkbox" id="c-ok" name="consent" value="1" required><span>Даю <a href="/consent/" target="_blank">согласие на обработку персональных данных</a></span></label>
+      <button class="btn btn-primary" type="submit">Отправить вопрос</button>
+      <p class="form-note">Нажимая кнопку, вы подтверждаете, что ознакомились с <a href="/privacy/" target="_blank">Политикой обработки персональных данных</a>.</p>
+      <p class="form-msg" hidden></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 AGREXPERT · ИП Романенко О. В., ОГРНИП 326784700162354</span>
+    <span class="f-links"><a href="/blog/">Блог</a><a href="/privacy/">Политика обработки персональных данных</a><a href="/consent/">Согласие на обработку данных</a></span>
+  </div>
+</footer>
+
+<div class="cookie" id="cookie" hidden role="region" aria-label="Уведомление о cookies">
+  <p>Мы используем cookies и сервис Яндекс Метрика, чтобы понимать, как работает сайт. Подробнее в <a href="/privacy/#cookies">Политике</a>.</p>
+  <div class="cookie-btns"><button class="btn btn-primary" type="button" id="ck-yes">Принять</button><button class="btn btn-ghost" type="button" id="ck-no">Только необходимые</button></div>
+</div>
+
+<script>
+(function(){
+  /* album slider */
+  var slides=[].slice.call(document.querySelectorAll('#album .slide')), cur=0, timer=null, DUR=6000;
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var el=function(id){return document.getElementById(id)}, prog=el('al-prog');
+  function show(n){
+    slides[cur].classList.remove('is-on');slides[cur].setAttribute('aria-hidden','true');
+    cur=(n+slides.length)%slides.length; var sl=slides[cur];
+    sl.classList.add('is-on');sl.removeAttribute('aria-hidden');
+    var im=sl.querySelector('img');im.style.animation='none';void im.offsetWidth;im.style.animation='';
+    el('al-sheet').textContent=sl.dataset.sheet; el('al-title').textContent=sl.dataset.title; el('al-cap').textContent=sl.dataset.cap;
+    el('al-count').textContent=String(cur+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0');
+    el('al-sw').innerHTML=(sl.dataset.sw?sl.dataset.sw.split('|'):[]).map(function(c){return '<i style="background:'+c+'"></i>'}).join('');
+    run();
+  }
+  function run(){
+    clearTimeout(timer);
+    if(reduce){prog.style.width=((cur+1)/slides.length*100)+'%';return;}
+    prog.style.transition='none';prog.style.width='0';void prog.offsetWidth;
+    prog.style.transition='width '+DUR+'ms linear';prog.style.width='100%';
+    timer=setTimeout(function(){show(cur+1)},DUR);
+  }
+  el('al-prev').addEventListener('click',function(){show(cur-1)});
+  el('al-next').addEventListener('click',function(){show(cur+1)});
+  var view=document.querySelector('.album-view'), x0=null;
+  view.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+  view.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)show(cur+(dx<0?1:-1));x0=null});
+  document.addEventListener('visibilitychange',function(){if(document.hidden)clearTimeout(timer);else run()});
+  run();
+
+  /* cookies + Яндекс Метрика (грузится только после согласия) */
+  var METRIKA_ID=113822254; /* Яндекс Метрика agrexpert.ru */
+  function loadMetrika(){ if(!METRIKA_ID)return;
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js','ym');
+    ym(METRIKA_ID,'init',{clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:false}); }
+  var ck=null; try{ck=localStorage.getItem('ck')}catch(e){}
+  var bar=document.getElementById('cookie');
+  if(ck==='yes')loadMetrika(); else if(ck!=='no')bar.hidden=false;
+  function setCk(v){try{localStorage.setItem('ck',v)}catch(e){} bar.hidden=true; if(v==='yes')loadMetrika();}
+  document.getElementById('ck-yes').addEventListener('click',function(){setCk('yes')});
+  document.getElementById('ck-no').addEventListener('click',function(){setCk('no')});
+
+  /* "Рассчитать стоимость" preselects task */
+  document.querySelectorAll('[data-task]').forEach(function(a){a.addEventListener('click',function(){var s=document.getElementById('a-task');s.value=a.getAttribute('data-task');});});
+
+  /* object filter */
+  var chips=document.querySelectorAll('.chip'), objs=document.querySelectorAll('.obj');
+  chips.forEach(function(c){c.addEventListener('click',function(){
+    chips.forEach(function(x){x.setAttribute('aria-pressed',x===c?'true':'false')});
+    var f=c.getAttribute('data-f'); objs.forEach(function(o){o.hidden=!(f==='all'||o.getAttribute('data-t')===f)});
+  });});
+
+  /* forms: POST to endpoint, honest fallback */
+  document.querySelectorAll('form[data-endpoint]').forEach(function(form){
+    var msg=form.querySelector('.form-msg');
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      var bad=[].slice.call(form.querySelectorAll('[required]')).filter(function(el){return el.type==='checkbox'?!el.checked:!el.value.trim()});
+      msg.hidden=false;
+      if(bad.length){msg.className='form-msg is-err';msg.textContent=bad.some(function(el){return el.type==='checkbox'})&&bad.length===1?'Отметьте согласие на обработку данных.':'Заполните имя, контакт и отметьте согласие.';bad[0].focus();return;}
+      var btn=form.querySelector('button[type=submit]');btn.disabled=true;
+      msg.className='form-msg';msg.textContent='Отправляем…';
+      fetch(form.getAttribute('data-endpoint'),{method:'POST',body:new FormData(form)})
+        .then(function(r){if(!r.ok)throw 0;msg.className='form-msg';msg.textContent='Заявка отправлена. Ответим на почту в течение рабочего дня.';form.reset();if(window.ym&&METRIKA_ID)ym(METRIKA_ID,'reachGoal',form.id==='audit-form'?'lead_audit':'lead_question');})
+        .catch(function(){msg.className='form-msg is-err';msg.textContent='Заявка не отправилась. Напишите нам на order@agrexpert.ru или в Telegram @archirider.';})
+        .then(function(){btn.disabled=false;});
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
